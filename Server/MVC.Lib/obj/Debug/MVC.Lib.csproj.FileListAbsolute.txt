@@ -1,0 +1,10 @@
+d:\Projects\MegaStar\MVC.Lib\bin\Debug\MegaStar.MVC.Lib.dll
+d:\Projects\MegaStar\MVC.Lib\bin\Debug\MegaStar.MVC.Lib.pdb
+d:\Projects\MegaStar\MVC.Lib\obj\Debug\ResolveAssemblyReference.cache
+d:\Projects\MegaStar\MVC.Lib\obj\Debug\MegaStar.MVC.Lib.dll
+d:\Projects\MegaStar\MVC.Lib\obj\Debug\MegaStar.MVC.Lib.pdb
+D:\Projects\MegaStar\Server\MVC.Lib\bin\Debug\MegaStar.MVC.Lib.dll
+D:\Projects\MegaStar\Server\MVC.Lib\bin\Debug\MegaStar.MVC.Lib.pdb
+D:\Projects\MegaStar\Server\MVC.Lib\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\MegaStar\Server\MVC.Lib\obj\Debug\MegaStar.MVC.Lib.dll
+D:\Projects\MegaStar\Server\MVC.Lib\obj\Debug\MegaStar.MVC.Lib.pdb
