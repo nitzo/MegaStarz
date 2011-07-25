@@ -10,7 +10,7 @@ namespace MegaStar.MVC.Lib.RestServices
     // a single instance of the service to process all calls.	
     [ServiceContract]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     // NOTE: If the service is renamed, remember to update the global.asax.cs file
     public class WP7Service
     {

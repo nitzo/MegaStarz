@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MegaStar.Data.Library.Entities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MegaStarDataLibraryEntitiesStoreContainer">
+    <EntitySet Name="Stars" EntityType="MegaStar.Data.Library.Entities.Store.Stars" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Songs" EntityType="MegaStar.Data.Library.Entities.Store.Songs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Artists" EntityType="MegaStar.Data.Library.Entities.Store.Artists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SongStarLinks" EntityType="MegaStar.Data.Library.Entities.Store.SongStarLinks" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ArtistSong" Association="MegaStar.Data.Library.Entities.Store.ArtistSong">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="Song" EntitySet="Songs" />
+    </AssociationSet>
+    <AssociationSet Name="StarSongStarLink" Association="MegaStar.Data.Library.Entities.Store.StarSongStarLink">
+      <End Role="Star" EntitySet="Stars" />
+      <End Role="SongStarLink" EntitySet="SongStarLinks" />
+    </AssociationSet>
+    <AssociationSet Name="SongSongStarLink" Association="MegaStar.Data.Library.Entities.Store.SongSongStarLink">
+      <End Role="Song" EntitySet="Songs" />
+      <End Role="SongStarLink" EntitySet="SongStarLinks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Stars">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Songs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="ArtistId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Artists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SongStarLinks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InsertDate" Type="datetime" Nullable="false" />
+    <Property Name="StarId" Type="int" Nullable="false" />
+    <Property Name="SongId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ArtistSong">
+    <End Role="Artist" Type="MegaStar.Data.Library.Entities.Store.Artists" Multiplicity="1" />
+    <End Role="Song" Type="MegaStar.Data.Library.Entities.Store.Songs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="ArtistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StarSongStarLink">
+    <End Role="Star" Type="MegaStar.Data.Library.Entities.Store.Stars" Multiplicity="1" />
+    <End Role="SongStarLink" Type="MegaStar.Data.Library.Entities.Store.SongStarLinks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Star">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SongStarLink">
+        <PropertyRef Name="StarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SongSongStarLink">
+    <End Role="Song" Type="MegaStar.Data.Library.Entities.Store.Songs" Multiplicity="1" />
+    <End Role="SongStarLink" Type="MegaStar.Data.Library.Entities.Store.SongStarLinks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Song">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SongStarLink">
+        <PropertyRef Name="SongId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MegaStar.Data.Library.Entities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="MegaStarzEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Stars" EntityType="MegaStar.Data.Library.Entities.Star" />
+          <EntitySet Name="Songs" EntityType="MegaStar.Data.Library.Entities.Song" />
+          <EntitySet Name="Artists" EntityType="MegaStar.Data.Library.Entities.Artist" />
+          <EntitySet Name="SongStarLinks" EntityType="MegaStar.Data.Library.Entities.SongStarLink" />
+          <AssociationSet Name="ArtistSong" Association="MegaStar.Data.Library.Entities.ArtistSong">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Song" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="StarSongStarLink" Association="MegaStar.Data.Library.Entities.StarSongStarLink">
+            <End Role="Star" EntitySet="Stars" />
+            <End Role="SongStarLink" EntitySet="SongStarLinks" />
+          </AssociationSet>
+          <AssociationSet Name="SongSongStarLink" Association="MegaStar.Data.Library.Entities.SongSongStarLink">
+            <End Role="Song" EntitySet="Songs" />
+            <End Role="SongStarLink" EntitySet="SongStarLinks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Star">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" cg:SetterAccess="Protected" />
+          <Property Type="String" Name="FirstName" Nullable="true" />
+          <Property Type="String" Name="LastName" Nullable="true" />
+          <Property Type="DateTime" Name="InsertDate" Nullable="false" cg:SetterAccess="Protected" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="false" />
+          <NavigationProperty Name="SongStarLinks" Relationship="MegaStar.Data.Library.Entities.StarSongStarLink" FromRole="Star" ToRole="SongStarLink" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:SetterAccess="Protected" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="DateTime" Name="InsertDate" Nullable="false" cg:SetterAccess="Protected" />
+          <NavigationProperty Name="Artist" Relationship="MegaStar.Data.Library.Entities.ArtistSong" FromRole="Song" ToRole="Artist" />
+          <Property Type="Int32" Name="ArtistId" Nullable="false" cg:SetterAccess="Protected" />
+          <NavigationProperty Name="SongStarLinks" Relationship="MegaStar.Data.Library.Entities.SongSongStarLink" FromRole="Song" ToRole="SongStarLink" />
+        </EntityType>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:SetterAccess="Protected" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="DateTime" Name="InsertDate" Nullable="false" cg:SetterAccess="Protected" />
+          <NavigationProperty Name="Songs" Relationship="MegaStar.Data.Library.Entities.ArtistSong" FromRole="Artist" ToRole="Song" />
+        </EntityType>
+        <EntityType Name="SongStarLink">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="InsertDate" Nullable="false" cg:SetterAccess="Protected" />
+          <NavigationProperty Name="Star" Relationship="MegaStar.Data.Library.Entities.StarSongStarLink" FromRole="SongStarLink" ToRole="Star" />
+          <Property Type="Int32" Name="StarId" Nullable="false" cg:SetterAccess="Protected" />
+          <NavigationProperty Name="Song" Relationship="MegaStar.Data.Library.Entities.SongSongStarLink" FromRole="SongStarLink" ToRole="Song" />
+          <Property Type="Int32" Name="SongId" Nullable="false" cg:SetterAccess="Protected" />
+        </EntityType>
+        <Association Name="ArtistSong">
+          <End Type="MegaStar.Data.Library.Entities.Artist" Role="Artist" Multiplicity="1" />
+          <End Type="MegaStar.Data.Library.Entities.Song" Role="Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Song">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StarSongStarLink">
+          <End Type="MegaStar.Data.Library.Entities.Star" Role="Star" Multiplicity="1" />
+          <End Type="MegaStar.Data.Library.Entities.SongStarLink" Role="SongStarLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Star">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SongStarLink">
+              <PropertyRef Name="StarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SongSongStarLink">
+          <End Type="MegaStar.Data.Library.Entities.Song" Role="Song" Multiplicity="1" />
+          <End Type="MegaStar.Data.Library.Entities.SongStarLink" Role="SongStarLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SongStarLink">
+              <PropertyRef Name="SongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MegaStarDataLibraryEntitiesStoreContainer" CdmEntityContainer="MegaStarzEntities">
+    <EntitySetMapping Name="Stars">
+      <EntityTypeMapping TypeName="IsTypeOf(MegaStar.Data.Library.Entities.Star)">
+        <MappingFragment StoreEntitySet="Stars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Songs">
+      <EntityTypeMapping TypeName="IsTypeOf(MegaStar.Data.Library.Entities.Song)">
+        <MappingFragment StoreEntitySet="Songs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="IsTypeOf(MegaStar.Data.Library.Entities.Artist)">
+        <MappingFragment StoreEntitySet="Artists">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SongStarLinks">
+      <EntityTypeMapping TypeName="IsTypeOf(MegaStar.Data.Library.Entities.SongStarLink)">
+        <MappingFragment StoreEntitySet="SongStarLinks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="StarId" ColumnName="StarId" />
+          <ScalarProperty Name="SongId" ColumnName="SongId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="MegaStarz" >
+        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Star" Width="1.5" PointX="9.125" PointY="1.25" Height="1.9802864583333331" />
+        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Song" Width="1.5" PointX="3.625" PointY="3.125" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Artist" Width="1.5" PointX="1.25" PointY="0.5" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.SongStarLink" Width="1.5" PointX="6.5" PointY="2.25" Height="1.4033821614583331" />
+        <AssociationConnector Association="MegaStar.Data.Library.Entities.ArtistSong">
+          <ConnectorPoint PointX="2" PointY="2.287985026041667" />
+          <ConnectorPoint PointX="2" PointY="4.2112939453125" />
+          <ConnectorPoint PointX="3.625" PointY="4.2112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="MegaStar.Data.Library.Entities.StarSongStarLink">
+          <ConnectorPoint PointX="9.125" PointY="2.8362939453125" />
+          <ConnectorPoint PointX="8" PointY="2.8362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="MegaStar.Data.Library.Entities.SongSongStarLink">
+          <ConnectorPoint PointX="5.125" PointY="3.7737939453125" />
+          <ConnectorPoint PointX="6.5" PointY="3.7737939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
