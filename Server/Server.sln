@@ -9,7 +9,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC.Lib", "MVC.Lib\MVC.Lib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Library", "Data.Library\Data.Library.csproj", "{2D5675C3-9001-4AE3-9ECC-0DF26D75201C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Library.Test", "..\Data.Library.Test\Data.Library.Test.csproj", "{F74AB236-DAA3-4A90-ACF3-BF72C5FB3B6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F70A12CA-FF11-43A7-81F4-CB132CD01DA1}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Server.vsmdi = Server.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Server.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -31,6 +43,10 @@ Global
 		{2D5675C3-9001-4AE3-9ECC-0DF26D75201C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D5675C3-9001-4AE3-9ECC-0DF26D75201C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D5675C3-9001-4AE3-9ECC-0DF26D75201C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74AB236-DAA3-4A90-ACF3-BF72C5FB3B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74AB236-DAA3-4A90-ACF3-BF72C5FB3B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74AB236-DAA3-4A90-ACF3-BF72C5FB3B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74AB236-DAA3-4A90-ACF3-BF72C5FB3B6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

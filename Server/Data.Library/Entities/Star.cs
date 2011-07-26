@@ -10,8 +10,15 @@ namespace MegaStar.Data.Library.Entities
 
         protected Star()
         {
+            Id = 0;
             InsertDate = DateTime.Now;
         } 
 
+        public int FacebookId
+        {
+            get { return Id; }
+            set { Id = value;  }
+
+        }
     }
 }

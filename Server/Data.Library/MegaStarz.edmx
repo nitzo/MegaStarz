@@ -121,7 +121,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" cg:SetterAccess="Protected" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" cg:SetterAccess="Protected" cg:GetterAccess="Public" />
           <Property Type="String" Name="FirstName" Nullable="true" />
           <Property Type="String" Name="LastName" Nullable="true" />
           <Property Type="DateTime" Name="InsertDate" Nullable="false" cg:SetterAccess="Protected" />

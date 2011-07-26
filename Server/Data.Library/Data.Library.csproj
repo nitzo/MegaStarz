@@ -60,6 +60,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MegaStarz.tt</DependentUpon>
     </Compile>
+    <Compile Include="MegaStarzRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Song.cs">
       <DependentUpon>MegaStarz.tt</DependentUpon>
