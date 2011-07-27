@@ -48,6 +48,12 @@ namespace MegaStar.Data.Library.Entities
             get;
             set;
         }
+    
+        public virtual long FacebookId
+        {
+            get;
+            set;
+        }
 
         #endregion
         #region Navigation Properties
