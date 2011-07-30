@@ -32,7 +32,11 @@
     <Property Name="LastName" Type="nvarchar(max)" Nullable="true" />
     <Property Name="InsertDate" Type="datetime" Nullable="false" />
     <Property Name="UpdateDate" Type="datetime" Nullable="false" />
-    <Property Name="FacebookId" Type="bigint" Nullable="false" />
+    <Property Name="FacebookId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Locale" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Birthday" Type="datetime" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Songs">
     <Key>
@@ -128,7 +132,11 @@
           <Property Type="DateTime" Name="InsertDate" Nullable="false" cg:SetterAccess="Protected" />
           <Property Type="DateTime" Name="UpdateDate" Nullable="false" />
           <NavigationProperty Name="SongStarLinks" Relationship="MegaStar.Data.Library.Entities.StarSongStarLink" FromRole="Star" ToRole="SongStarLink" />
-          <Property Type="Int64" Name="FacebookId" Nullable="false" />
+          <Property Type="String" Name="FacebookId" Nullable="false" />
+          <Property Type="String" Name="Locale" Nullable="true" />
+          <Property Type="String" Name="Gender" Nullable="true" />
+          <Property Type="DateTime" Name="Birthday" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
         </EntityType>
         <EntityType Name="Song">
           <Key>
@@ -212,6 +220,10 @@
           <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
           <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+          <ScalarProperty Name="Locale" ColumnName="Locale" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -264,7 +276,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="MegaStarz" >
-        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Star" Width="1.5" PointX="10.125" PointY="0.625" Height="2.364889322916667" />
+        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Star" Width="1.5" PointX="10.125" PointY="0.625" Height="3.1340950520833331" />
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Song" Width="1.5" PointX="3.5" PointY="3.625" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Artist" Width="1.5" PointX="0.75" PointY="1.25" Height="1.787985026041667" />
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.SongStarLink" Width="1.5" PointX="6.5" PointY="2.25" Height="1.4033821614583331" />
@@ -274,8 +286,8 @@
           <ConnectorPoint PointX="4.25" PointY="3.625" />
         </AssociationConnector>
         <AssociationConnector Association="MegaStar.Data.Library.Entities.StarSongStarLink">
-          <ConnectorPoint PointX="10.125" PointY="2.6199446614583337" />
-          <ConnectorPoint PointX="8" PointY="2.6199446614583337" />
+          <ConnectorPoint PointX="10.125" PointY="3.0045475260416667" />
+          <ConnectorPoint PointX="8" PointY="3.0045475260416667" />
         </AssociationConnector>
         <AssociationConnector Association="MegaStar.Data.Library.Entities.SongSongStarLink">
           <ConnectorPoint PointX="5" PointY="4.0237939453125" />

@@ -6,7 +6,7 @@ using MegaStar.Data.Library.Entities;
 
 namespace MegaStar.Data.Library
 {
-    public class MegaStarzRepository
+    public class MegaStarzRepository : IDisposable
     {
 
         private MegaStarzEntities _context;
@@ -18,15 +18,29 @@ namespace MegaStar.Data.Library
         }
 
 
-        public Star CreateStarEntry ()
+        public Star CreateStarEntry()
         {
-            return _context.Stars.CreateObject();
+            var star = _context.Stars.CreateObject();
+
+            _context.Stars.AddObject(star);
+
+            return star;
+        }
+
+        public Star GetStar(string faceBookId)
+        {
+            return _context.Stars.Where(s => s.FacebookId == faceBookId).FirstOrDefault();
         }
 
 
         public void Save()
         {
             _context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
         }
 
     }

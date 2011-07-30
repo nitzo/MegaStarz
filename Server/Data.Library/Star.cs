@@ -49,7 +49,31 @@ namespace MegaStar.Data.Library.Entities
             set;
         }
     
-        public virtual long FacebookId
+        public virtual string FacebookId
+        {
+            get;
+            set;
+        }
+    
+        public virtual string Locale
+        {
+            get;
+            set;
+        }
+    
+        public virtual string Gender
+        {
+            get;
+            set;
+        }
+    
+        public virtual Nullable<System.DateTime> Birthday
+        {
+            get;
+            set;
+        }
+    
+        public virtual string Email
         {
             get;
             set;

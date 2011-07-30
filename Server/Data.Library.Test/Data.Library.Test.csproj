@@ -51,7 +51,7 @@
     <Compile Include="MegaStarzEntitiesTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Server\Data.Library\Data.Library.csproj">
+    <ProjectReference Include="..\Data.Library\Data.Library.csproj">
       <Project>{2D5675C3-9001-4AE3-9ECC-0DF26D75201C}</Project>
       <Name>Data.Library</Name>
     </ProjectReference>

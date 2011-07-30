@@ -28,7 +28,7 @@ namespace Data.Library.Test
             star.FirstName = "David";
             star.LastName = "Cohen";
             star.UpdateDate = DateTime.Now;
-            star.FacebookId = 1234;
+            star.FacebookId = "1234";
             
             _context.SaveChanges();
 

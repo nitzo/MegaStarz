@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 07/27/2011 22:56:32
+-- Date Created: 07/29/2011 23:49:04
 -- Generated from EDMX file: d:\Projects\MegaStar\Server\Data.Library\MegaStarz.edmx
 -- --------------------------------------------------
 
@@ -55,7 +55,11 @@ CREATE TABLE [dbo].[Stars] (
     [LastName] nvarchar(max)  NULL,
     [InsertDate] datetime  NOT NULL,
     [UpdateDate] datetime  NOT NULL,
-    [FacebookId] bigint  NOT NULL
+    [FacebookId] nvarchar(max)  NOT NULL,
+    [Locale] nvarchar(max)  NULL,
+    [Gender] nvarchar(max)  NULL,
+    [Birthday] datetime  NULL,
+    [Email] nvarchar(max)  NULL
 );
 GO
 

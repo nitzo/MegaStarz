@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MegaStar.MVC.Lib
 {
-    [DataContract]
+    [DataContract(Namespace = "")]
     public class Ticket
     {
         [DataMember]
