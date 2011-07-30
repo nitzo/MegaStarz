@@ -29,3 +29,5 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 Data.Library.Test/App.Debug.config
 Data.Library.Test/App.Release.Config
+Server/Data.Library.Test/App.Release.Config
+Server/MVC.Web/Web.Release.config
