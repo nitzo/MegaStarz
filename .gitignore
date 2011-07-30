@@ -27,8 +27,7 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-Data.Library.Test/App.Debug.config
-Data.Library.Test/App.Release.Config
-Server/Data.Library.Test/App.Release.Config
+Server/Data.Library.Test/App.Debug.config
+Server/Data.Library.Test/App.Release.config
 Server/MVC.Web/Web.Release.config
 Server/MVC.Web/Web.Debug.config
