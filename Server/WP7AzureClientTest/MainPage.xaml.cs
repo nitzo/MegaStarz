@@ -29,7 +29,7 @@ namespace WP7AzureClientTest
 
             var req = new GetTicketRequest();
 
-            req.AccessToken = "148836425163954|2.AQDPOo6a1szM-Vbe.3600.1312549200.0-788734623|L9jzdfw5GD-drMMlFOXJpjbqXgw";
+            req.AccessToken = "148836425163954|2.AQCn5uljX2gtjJ9y.3600.1312560000.0-788734623|I7VdRze3hGBqBYj59T2VRJ4SUzY";
 
             client.GetTicketAsync(req, (response) => Dispatcher.BeginInvoke(() => textBox1.SelectedText = response.Star.FirstName));
         }
