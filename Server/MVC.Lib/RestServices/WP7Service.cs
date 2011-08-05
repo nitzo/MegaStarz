@@ -7,6 +7,7 @@ using AutoMapper;
 using Facebook;
 using MegaStar.Data.Library;
 using MegaStar.Data.Library.Entities;
+using Megastar.RestServices.Library.Entities;
 
 namespace MegaStar.MVC.Lib.RestServices
 {

@@ -11,7 +11,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Megastar.MVC.Web</RootNamespace>
-    <AssemblyName>MegaStart.MVC.Web</AssemblyName>
+    <AssemblyName>MegaStar.MVC.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
 
-namespace MegaStar.MVC.Lib
+namespace Megastar.RestServices.Library.Entities
 {
     [DataContract(Namespace = "")]
     public class Ticket
