@@ -24,6 +24,9 @@ namespace Megastar.RestServices.Library.Entities
         [DataMember]
         public string Email;
 
+        [DataMember]
+        public string FacebookId;
+
     }
 
 }

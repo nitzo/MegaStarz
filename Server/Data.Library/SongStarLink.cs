@@ -64,6 +64,12 @@ namespace MegaStar.Data.Library.Entities
             }
         }
         private int _songId;
+    
+        public virtual string FileGuid
+        {
+            get;
+            set;
+        }
 
         #endregion
         #region Navigation Properties

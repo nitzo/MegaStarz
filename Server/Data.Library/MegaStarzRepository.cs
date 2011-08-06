@@ -27,9 +27,24 @@ namespace MegaStar.Data.Library
             return star;
         }
 
+        public SongStarLink CreateSongStarLink()
+        {
+            var songStarLink = _context.SongStarLinks.CreateObject();
+
+            _context.SongStarLinks.AddObject(songStarLink);
+
+            return songStarLink;
+        }
+
+        
         public Star GetStar(string faceBookId)
         {
             return _context.Stars.Where(s => s.FacebookId == faceBookId).FirstOrDefault();
+        }
+
+        public Song GetSong(int id)
+        {
+            return _context.Songs.Where(s => s.Id == id).FirstOrDefault();
         }
 
 

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 07/29/2011 23:49:04
+-- Date Created: 08/06/2011 17:58:56
 -- Generated from EDMX file: d:\Projects\MegaStar\Server\Data.Library\MegaStarz.edmx
 -- --------------------------------------------------
 
@@ -85,7 +85,8 @@ CREATE TABLE [dbo].[SongStarLinks] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [InsertDate] datetime  NOT NULL,
     [StarId] int  NOT NULL,
-    [SongId] int  NOT NULL
+    [SongId] int  NOT NULL,
+    [FileGuid] nvarchar(max)  NOT NULL
 );
 GO
 

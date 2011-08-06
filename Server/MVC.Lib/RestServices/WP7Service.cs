@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Dynamic;
+using System.IO;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
@@ -20,9 +22,15 @@ namespace MegaStar.MVC.Lib.RestServices
     // NOTE: If the service is renamed, remember to update the global.asax.cs file
     public class WP7Service
     {
+        #region REST Operations
         
-
+        /// <summary>
+        /// Returns a ticket associated with an access Token.
+        /// </summary>
+        /// <param name="request">Facebook Access token of the User</param>
+        /// <returns>A valid ticket and the User's detials from facebook</returns>
         [WebInvoke(Method = "POST", UriTemplate = "GetTicket")]
+        [Description("Get a ticket to enable usage of this service")]
         public GetTicketResponse GetTicket(GetTicketRequest request)
         {
 
@@ -49,20 +57,89 @@ namespace MegaStar.MVC.Lib.RestServices
                return null; //TODO: Return bas request
            
 
-            var star = UpdateStarInDB(user);
+            StarResponse star = UpdateStarInDB(user);
 
 
             var response = new GetTicketResponse()
                                {
                                    Star = star,
-
-                                    //TODO: Implement ticketing system
-                                   Ticket = new Ticket() {ticket = "123456", expires = DateTime.Now.AddHours(2)}
+                                   Ticket = TicketHandler.GenerateNewTicket(request.AccessToken, star.FacebookId) 
                                };
 
             return response;
         }
 
+        /// <summary>
+        /// Upload a new recorded song to the blob storage.
+        /// Request's content type must be text/plain!
+        /// </summary>
+        /// <param name="ticket">The ticket string received from GetTicket()</param>
+        /// <param name="songId">The song id to which this recording belongs to</param>
+        /// <param name="file">A byte content file</param>
+        /// <returns>Returns the ID of the file in the blob and it's URL</returns>
+        [WebInvoke(Method = "POST", UriTemplate = "UploadSong/{ticket}/{songId}")]
+        [Description("Upload a recorded song to the application. When using set content type to text/plain!")]
+        public UploadRecordingResponse UploadSong(string ticket, string songId, Stream file)
+        {
+            var t = TicketHandler.GetVerifiedTicket(ticket);
+
+            int sid;
+
+            if (!Int32.TryParse(songId, out sid))
+                return null; //TODO: Return Bad Request
+
+            if (t == null)
+                return null; //TODO: Return Bad Request
+
+            var storage = new BlobStorageManager("recordedsongs"); //TODO:Get from web.config
+
+            string fileGuid;
+
+            try
+            {
+                fileGuid = storage.UploadStream(file, "video/mp4");
+            }
+            catch (Exception e)
+            {
+                return null; //TODO: Return Bas request
+            }
+
+
+            using (var _repo = new MegaStarzRepository())
+            {
+                var star = _repo.GetStar(t.starId);
+
+                var song = _repo.GetSong(sid);
+
+                if (song == null || star == null)
+                {
+                    storage.DeleteBlob(fileGuid);
+                    return null; //TODO: Return Bad Request
+                }
+
+                var songStarLink = _repo.CreateSongStarLink();
+
+                songStarLink.Star = star;
+                songStarLink.Song = song;
+                songStarLink.FileGuid = fileGuid;
+
+                try
+                {
+                    _repo.Save();
+                }
+                catch (Exception e)
+                {
+                    storage.DeleteBlob(fileGuid);
+                    return null; //TODO: Return Bad Request
+                }
+            }
+
+            return new UploadRecordingResponse(){id = fileGuid, playUrl = storage.GetBlobUri(fileGuid).ToString()};
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private StarResponse UpdateStarInDB(dynamic user)
         {
@@ -91,6 +168,7 @@ namespace MegaStar.MVC.Lib.RestServices
                 
                 //Map star object to light-wieght starResponse
                 Mapper.DynamicMap(star, starResponse);
+                
             }
 
             return starResponse;
@@ -105,7 +183,7 @@ namespace MegaStar.MVC.Lib.RestServices
             star.Gender = user.gender;
             star.Locale = user.locale;
             star.Email = user.email;
-
+          
             DateTime bday;
 
             if (DateTime.TryParse(user.birthday, out bday))
@@ -115,34 +193,7 @@ namespace MegaStar.MVC.Lib.RestServices
 
             //star.picture = user.picture;
         }
-
-        //[WebInvoke(UriTemplate = "", Method = "POST")]
-        //public SampleItem Create(SampleItem instance)
-        //{
-        //    // TODO: Add the new instance of SampleItem to the collection
-        //    throw new NotImplementedException();
-        //}
-
-        //[WebGet(UriTemplate = "{id}")]
-        //public SampleItem Get(string id)
-        //{
-        //    // TODO: Return the instance of SampleItem with the given id
-        //    throw new NotImplementedException();
-        //}
-
-        //[WebInvoke(UriTemplate = "{id}", Method = "PUT")]
-        //public SampleItem Update(string id, SampleItem instance)
-        //{
-        //    // TODO: Update the given instance of SampleItem in the collection
-        //    throw new NotImplementedException();
-        //}
-
-        //[WebInvoke(UriTemplate = "{id}", Method = "DELETE")]
-        //public void Delete(string id)
-        //{
-        //    // TODO: Remove the instance of SampleItem with the given id from the collection
-        //    throw new NotImplementedException();
-        //}
-
+       #endregion
+ 
     }
 }

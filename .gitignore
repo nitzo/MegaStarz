@@ -31,3 +31,4 @@ Server/Data.Library.Test/App.Debug.config
 Server/Data.Library.Test/App.Release.config
 Server/MVC.Web/Web.Release.config
 Server/MVC.Web/Web.Debug.config
+Backup/*

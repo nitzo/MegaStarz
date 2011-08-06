@@ -11,5 +11,9 @@ namespace Megastar.RestServices.Library.Entities
 
         [DataMember]
         public DateTime expires;
+
+        public string accessToken;  //TODO: Hide this in response to GetTicket (Make Internal)?
+
+        public string starId;       //TODO: Hide this in response to GetTicket (Make Internal)?
     }
 }

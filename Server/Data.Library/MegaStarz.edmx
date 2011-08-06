@@ -63,6 +63,7 @@
     <Property Name="InsertDate" Type="datetime" Nullable="false" />
     <Property Name="StarId" Type="int" Nullable="false" />
     <Property Name="SongId" Type="int" Nullable="false" />
+    <Property Name="FileGuid" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="ArtistSong">
     <End Role="Artist" Type="MegaStar.Data.Library.Entities.Store.Artists" Multiplicity="1" />
@@ -168,6 +169,7 @@
           <Property Type="Int32" Name="StarId" Nullable="false" cg:SetterAccess="Protected" />
           <NavigationProperty Name="Song" Relationship="MegaStar.Data.Library.Entities.SongSongStarLink" FromRole="SongStarLink" ToRole="Song" />
           <Property Type="Int32" Name="SongId" Nullable="false" cg:SetterAccess="Protected" />
+          <Property Type="String" Name="FileGuid" Nullable="false" />
         </EntityType>
         <Association Name="ArtistSong">
           <End Type="MegaStar.Data.Library.Entities.Artist" Role="Artist" Multiplicity="1" />
@@ -253,6 +255,7 @@
           <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
           <ScalarProperty Name="StarId" ColumnName="StarId" />
           <ScalarProperty Name="SongId" ColumnName="SongId" />
+          <ScalarProperty Name="FileGuid" ColumnName="FileGuid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -279,7 +282,7 @@
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Star" Width="1.5" PointX="10.125" PointY="0.625" Height="3.1340950520833331" />
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Song" Width="1.5" PointX="3.5" PointY="3.625" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Artist" Width="1.5" PointX="0.75" PointY="1.25" Height="1.787985026041667" />
-        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.SongStarLink" Width="1.5" PointX="6.5" PointY="2.25" Height="1.4033821614583331" />
+        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.SongStarLink" Width="1.5" PointX="6.5" PointY="2.25" Height="2.3648893229166656" />
         <AssociationConnector Association="MegaStar.Data.Library.Entities.ArtistSong">
           <ConnectorPoint PointX="2.25" PointY="2.1439925130208337" />
           <ConnectorPoint PointX="4.25" PointY="2.1439925130208337" />
@@ -290,8 +293,8 @@
           <ConnectorPoint PointX="8" PointY="3.0045475260416667" />
         </AssociationConnector>
         <AssociationConnector Association="MegaStar.Data.Library.Entities.SongSongStarLink">
-          <ConnectorPoint PointX="5" PointY="4.0237939453125" />
-          <ConnectorPoint PointX="6.5" PointY="4.0237939453125" />
+          <ConnectorPoint PointX="5" PointY="4.1199446614583328" />
+          <ConnectorPoint PointX="6.5" PointY="4.1199446614583328" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
