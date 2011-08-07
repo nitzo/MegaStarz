@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client-WP7", "Client-WP7.csproj", "{EE7F319A-A145-4717-BBB6-2532F7572DE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client-WP7", "Client-WP7.csproj", "{B64F4253-B53D-4C7F-BD3E-1421607CDAA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientLibrary-WP7", "..\ClientLibrary\ClientLibrary-WP7.csproj", "{41898739-68BE-402A-A8D0-9270BD85EACD}"
 EndProject
@@ -11,12 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE7F319A-A145-4717-BBB6-2532F7572DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE7F319A-A145-4717-BBB6-2532F7572DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE7F319A-A145-4717-BBB6-2532F7572DE2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{EE7F319A-A145-4717-BBB6-2532F7572DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE7F319A-A145-4717-BBB6-2532F7572DE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE7F319A-A145-4717-BBB6-2532F7572DE2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B64F4253-B53D-4C7F-BD3E-1421607CDAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64F4253-B53D-4C7F-BD3E-1421607CDAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64F4253-B53D-4C7F-BD3E-1421607CDAA7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B64F4253-B53D-4C7F-BD3E-1421607CDAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64F4253-B53D-4C7F-BD3E-1421607CDAA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64F4253-B53D-4C7F-BD3E-1421607CDAA7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{41898739-68BE-402A-A8D0-9270BD85EACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{41898739-68BE-402A-A8D0-9270BD85EACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41898739-68BE-402A-A8D0-9270BD85EACD}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -72,25 +72,39 @@ namespace Megastar.Client.Library
             req.SendChunked = true;
             req.Timeout = 4800000;
 #endif
+
+            req.BeginGetRequestStream((asynchronousRequestResult) =>
+            {
+                HttpWebRequest r = (HttpWebRequest)asynchronousRequestResult.AsyncState;
+
+                using (Stream requestStream = r.EndGetRequestStream(asynchronousRequestResult))
+                {
+                    fileStream.CopyTo(requestStream);
+                }                               
+
+                r.BeginGetResponse((asynchronousResponseResult) =>
+                {
+                    HttpWebRequest request = (HttpWebRequest)asynchronousResponseResult.AsyncState;
+
+                    HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asynchronousResponseResult);
+
+                    MegaStarXmlSerializer serializer = new MegaStarXmlSerializer();
+
+                    var result = serializer.Deserialize<UploadRecordingResponse>(response.GetResponseStream());
+
+                    callback(result);
+
+                }, r);
+
+
+            }, req);
+
+
             
-            
-            fileStream.CopyTo(req.GetRequestStream());
 
            
 
-           req.BeginGetResponse((asynchronousResult) =>
-                                    {
-                                        HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
-
-                                        HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asynchronousResult);
-
-                                        MegaStarXmlSerializer serializer = new MegaStarXmlSerializer();
-
-                                        var result = serializer.Deserialize<UploadRecordingResponse>(response.GetResponseStream());
-
-                                        callback(result);
-
-                                    }, req);
+          
         }
         
     }

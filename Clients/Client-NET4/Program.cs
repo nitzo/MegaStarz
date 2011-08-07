@@ -14,7 +14,7 @@ namespace AzureClientTester
 
             var req = new GetTicketRequest();
             req.AccessToken =
-                "148836425163954|2.AQBGsPpmveZhgIK0.3600.1312671600.0-788734623|hUDBu-6iOb8dTM1GbvPKT7wdRME";
+                "148836425163954|2.AQC6yDgbSMJCasPO.3600.1312725600.0-788734623|IqbfIqIVHI5JF3byke-I6jDjm7Y";
 
             client.GetTicketAsync(req,
                 (response) =>
@@ -23,7 +23,7 @@ namespace AzureClientTester
 
                         try
                         {
-                            fs = new FileStream("C:\\1020.log", FileMode.Open, FileAccess.Read);
+                            fs = new FileStream(@"C:\Users\nitzo\Downloads\Bulletproof_Monk_Sample.mp4", FileMode.Open, FileAccess.Read);
                         }
                         catch (Exception e)
                         {

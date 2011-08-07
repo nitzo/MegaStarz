@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace WP7AzureClientTest
+namespace Client_WP7
 {
     public partial class App : Application
     {
