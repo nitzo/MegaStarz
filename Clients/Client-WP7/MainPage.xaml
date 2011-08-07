@@ -29,7 +29,8 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
         <Button Content="GetTicket" Margin="108,82,112,454" Tap="GetTicketClick" />
         <Button Content="UploadFile" Margin="108,140,112,396" Tap="UploadFileClick" />
-        <TextBox Height="367" HorizontalAlignment="Left" Margin="116,202,0,0" Name="textBox1" Text="TextBox" VerticalAlignment="Top" Width="228" />
+        <Button Content="GetSongs" Margin="108,198,112,335" Tap="GetSongsClick" />
+        <TextBox Height="350" HorizontalAlignment="Left" Margin="116,270,10,0" Name="textBox1" Text="TextBox" VerticalAlignment="Top" Width="228" />
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->

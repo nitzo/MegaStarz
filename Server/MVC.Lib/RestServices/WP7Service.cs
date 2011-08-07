@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 using System.IO;
@@ -135,6 +136,39 @@ namespace MegaStar.MVC.Lib.RestServices
             }
 
             return new UploadRecordingResponse(){id = fileGuid, playUrl = storage.GetBlobUri(fileGuid).ToString()};
+        }
+
+        /// <summary>
+        /// Get all songs on server avialable for playback
+        /// </summary>
+        /// <returns>List of songs avialable</returns>
+        [WebGet(UriTemplate = "Songs")]
+        [Description("Get all songs avialable")]
+        public List<SongResponse> GetSongs()
+        {
+            List<SongResponse> result = new List<SongResponse>();
+
+            using (var _repo = new MegaStarzRepository())
+            {
+                var songList = _repo.GetSongs();
+
+                foreach (var song in songList)
+                {
+                    var s = new SongResponse()
+                                {
+                                    id = song.Id,
+                                    artistName = song.Artist.Name,
+                                    name = song.Name,
+                                    length = song.Length,
+                                    playUrl = song.PlayUrl
+                                };
+
+                    result.Add(s);
+                }
+                
+            }
+
+            return result;
         }
 
         #endregion

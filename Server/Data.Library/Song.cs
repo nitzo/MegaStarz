@@ -53,6 +53,18 @@ namespace MegaStar.Data.Library.Entities
             }
         }
         private int _artistId;
+    
+        public virtual int Length
+        {
+            get;
+            set;
+        }
+    
+        public virtual string PlayUrl
+        {
+            get;
+            set;
+        }
 
         #endregion
         #region Navigation Properties

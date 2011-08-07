@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 08/06/2011 17:58:56
--- Generated from EDMX file: d:\Projects\MegaStar\Server\Data.Library\MegaStarz.edmx
+-- Date Created: 08/07/2011 23:30:57
+-- Generated from EDMX file: D:\Projects\MegaStar\Server\Data.Library\MegaStarz.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -68,7 +68,9 @@ CREATE TABLE [dbo].[Songs] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [InsertDate] datetime  NOT NULL,
-    [ArtistId] int  NOT NULL
+    [ArtistId] int  NOT NULL,
+    [Length] int  NOT NULL,
+    [PlayUrl] nvarchar(max)  NOT NULL
 );
 GO
 

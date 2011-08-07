@@ -48,6 +48,11 @@ namespace MegaStar.Data.Library
         }
 
 
+        public List<Song>  GetSongs()
+        {
+            return _context.Songs.Include("Artist").ToList();
+        }
+
         public void Save()
         {
             _context.SaveChanges();

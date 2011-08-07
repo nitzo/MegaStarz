@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Entities\GetTicketRequest.cs" />
     <Compile Include="Entities\GetTicketResponse.cs" />
+    <Compile Include="Entities\SongResponse.cs" />
     <Compile Include="Entities\StarResponse.cs" />
     <Compile Include="Entities\Ticket.cs" />
     <Compile Include="Entities\UploadRecordingResponse.cs" />

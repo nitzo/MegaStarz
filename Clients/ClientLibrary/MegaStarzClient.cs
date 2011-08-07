@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using Megastar.RestServices.Library.Entities;
@@ -43,7 +44,11 @@ namespace Megastar.Client.Library
                                                     });
         }
 
-
+        /// <summary>
+        /// Exchange a Facebook AccessToken for a MegaStarz REST ticket
+        /// </summary>
+        /// <param name="request">Ticket request</param>
+        /// <param name="callback">Callback function that recieves with ticket & star info</param>
         public void GetTicketAsync(GetTicketRequest request, Action<GetTicketResponse> callback)
         {
             RestRequest restRequest = new RestRequest("GetTicket", Method.POST);
@@ -57,8 +62,14 @@ namespace Megastar.Client.Library
         }
         
             
-
-        public void UploadRecordingAsync(string ticket, string songId, Stream fileStream, Action<UploadRecordingResponse> callback)
+        /// <summary>
+        /// Upload a recorded file to MegaStarz songs repository
+        /// </summary>
+        /// <param name="ticket">A valid REST ticket</param>
+        /// <param name="songId">The song id this recording belongs to</param>
+        /// <param name="fileStream">The recorded stream</param>
+        /// <param name="callback">A callback function that recieves file id and play url</param>
+        public void UploadRecordingAsync(string ticket, int songId, Stream fileStream, Action<UploadRecordingResponse> callback)
         {
 
             string resource = String.Format("UploadSong/{0}/{1}", ticket, songId);
@@ -98,13 +109,17 @@ namespace Megastar.Client.Library
 
 
             }, req);
+        }
+        
+        /// <summary>
+        /// Get all avialable songs to record
+        /// </summary>
+        /// <param name="callback">A callback function that recieves a list of songs</param>
+        public void GetSongsAsync(Action<List<SongResponse>> callback )
+        {
+            RestRequest request = new RestRequest("Songs", Method.GET);
 
-
-            
-
-           
-
-          
+            ExecuteAsync<List<SongResponse>>(request, callback);
         }
         
     }

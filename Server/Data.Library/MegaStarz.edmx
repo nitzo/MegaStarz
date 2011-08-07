@@ -46,6 +46,8 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="InsertDate" Type="datetime" Nullable="false" />
     <Property Name="ArtistId" Type="int" Nullable="false" />
+    <Property Name="Length" Type="int" Nullable="false" />
+    <Property Name="PlayUrl" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Artists">
     <Key>
@@ -149,6 +151,8 @@
           <NavigationProperty Name="Artist" Relationship="MegaStar.Data.Library.Entities.ArtistSong" FromRole="Song" ToRole="Artist" />
           <Property Type="Int32" Name="ArtistId" Nullable="false" cg:SetterAccess="Protected" />
           <NavigationProperty Name="SongStarLinks" Relationship="MegaStar.Data.Library.Entities.SongSongStarLink" FromRole="Song" ToRole="SongStarLink" />
+          <Property Type="Int32" Name="Length" Nullable="false" />
+          <Property Type="String" Name="PlayUrl" Nullable="false" />
         </EntityType>
         <EntityType Name="Artist">
           <Key>
@@ -236,6 +240,8 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
           <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="PlayUrl" ColumnName="PlayUrl" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -280,7 +286,7 @@
     <edmx:Diagrams>
       <Diagram Name="MegaStarz" >
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Star" Width="1.5" PointX="10.125" PointY="0.625" Height="3.1340950520833331" />
-        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Song" Width="1.5" PointX="3.5" PointY="3.625" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Song" Width="1.5" PointX="3.5" PointY="3.625" Height="2.5571907552083326" />
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.Artist" Width="1.5" PointX="0.75" PointY="1.25" Height="1.787985026041667" />
         <EntityTypeShape EntityType="MegaStar.Data.Library.Entities.SongStarLink" Width="1.5" PointX="6.5" PointY="2.25" Height="2.3648893229166656" />
         <AssociationConnector Association="MegaStar.Data.Library.Entities.ArtistSong">
@@ -293,8 +299,8 @@
           <ConnectorPoint PointX="8" PointY="3.0045475260416667" />
         </AssociationConnector>
         <AssociationConnector Association="MegaStar.Data.Library.Entities.SongSongStarLink">
-          <ConnectorPoint PointX="5" PointY="4.1199446614583328" />
-          <ConnectorPoint PointX="6.5" PointY="4.1199446614583328" />
+          <ConnectorPoint PointX="5" PointY="4.1199446614583319" />
+          <ConnectorPoint PointX="6.5" PointY="4.1199446614583319" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

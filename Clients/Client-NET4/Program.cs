@@ -9,12 +9,12 @@ namespace AzureClientTester
     {
         static void Main(string[] args)
         {
-           // var client = new WP7Client("http://localhost:88/Services/WP7");
-            var client = new MegaStarzClient();
+            var client = new MegaStarzClient("http://localhost:81/Services/WP7");
+            //var client = new MegaStarzClient();
 
             var req = new GetTicketRequest();
             req.AccessToken =
-                "148836425163954|2.AQC6yDgbSMJCasPO.3600.1312725600.0-788734623|IqbfIqIVHI5JF3byke-I6jDjm7Y";
+                "148836425163954|2.AQDUSmjh73ORWAZL.3600.1312754400.0-788734623|Hv4MUlx5sgAjCvitnhWMHtHgbUs";
 
             client.GetTicketAsync(req,
                 (response) =>
@@ -23,7 +23,7 @@ namespace AzureClientTester
 
                         try
                         {
-                            fs = new FileStream(@"C:\Users\nitzo\Downloads\Bulletproof_Monk_Sample.mp4", FileMode.Open, FileAccess.Read);
+                            fs = new FileStream(@"C:\1020.log", FileMode.Open, FileAccess.Read);
                         }
                         catch (Exception e)
                         {
@@ -31,7 +31,7 @@ namespace AzureClientTester
                         }
 
 
-                        client.UploadRecordingAsync(response.Ticket.ticket, "1", fs, (recResponse) =>
+                        client.UploadRecordingAsync(response.Ticket.ticket, 1, fs, (recResponse) =>
                                                                               {
                                                                                   Console.WriteLine(recResponse.playUrl);
                                                                               });
@@ -41,6 +41,13 @@ namespace AzureClientTester
 
                 });
 
+            client.GetSongsAsync((response) =>
+                                     {
+                                         foreach (var songResponse in response)
+                                         {
+                                             Console.WriteLine(string.Format("Song ({0}): \"{1}\", ({2}). Length {3}, PlayUrl: {4}", songResponse.id, songResponse.name, songResponse.artistName, songResponse.length, songResponse.playUrl));
+                                         }
+                                     });
 
             System.Threading.Thread.CurrentThread.Suspend();
         }
