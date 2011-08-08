@@ -2,8 +2,8 @@ INSERT INTO [MegaStarz].[dbo].[Artists]
 		   ([Name]
 		   ,[InsertDate])
 	 VALUES
-		   ('ABBA'
-		   ,'6/08/2011')
+		   ('Lady GA GA'
+		   ,'08/08/2011')
 GO
 
 INSERT INTO [MegaStarz].[dbo].[Songs]
@@ -13,11 +13,11 @@ INSERT INTO [MegaStarz].[dbo].[Songs]
 		   ,[Length]
 		   ,[PlayUrl])
 	 VALUES
-		   ('Dancing Queen'
-		   ,'6/8/2001'
+		   ('Paparazzi'
+		   ,'08/08/2011'
 		   ,1
-		   ,450
-		   ,'http://a.b.c.d/bla')
+		   ,219
+		   ,'http://megastarz.blob.core.windows.net/songs/paparazzi.wmv')
 GO
 
 INSERT INTO [MegaStarz].[dbo].[Songs]
@@ -27,11 +27,11 @@ INSERT INTO [MegaStarz].[dbo].[Songs]
 		   ,[Length]
 		   ,[PlayUrl])
 	 VALUES
-		   ('Waterloo'
-		   ,'6/8/2001'
+		   ('Poker Face'
+		   ,'08/08/2011'
 		   ,1
-		   ,450
-		   ,'http://a.b.c.d/bla')
+		   ,253
+		   ,'http://megastarz.blob.core.windows.net/songs/pokerface.wmv')
 GO
 
 
