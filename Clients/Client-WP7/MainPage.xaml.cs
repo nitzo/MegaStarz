@@ -24,8 +24,8 @@ namespace Client_WP7
         // Constructor
         public MainPage()
         {
-            //client = new MegaStarzClient();
-            client = new MegaStarzClient("http://localhost:81/Services/WP7");
+            client = new MegaStarzClient();
+            //client = new MegaStarzClient("http://localhost:81/Services/WP7");
 
             InitializeComponent();
         }
