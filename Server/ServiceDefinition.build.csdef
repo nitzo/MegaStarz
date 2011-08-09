@@ -25,6 +25,7 @@
     </Imports>
     <ConfigurationSettings>
       <Setting name="DataConnectionString" />
+      <Setting name="CloudToolsDiagnosticAgentVersion" />
     </ConfigurationSettings>
     <LocalResources></LocalResources>
   </WebRole>
