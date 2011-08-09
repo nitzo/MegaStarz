@@ -110,7 +110,35 @@ namespace Megastar.Client.Library
 
             }, req);
         }
-        
+
+
+        public void UploadRecordingAsyncWC(string ticket, int songId, Stream fileStream, Action<UploadRecordingResponse> callback)
+        {
+            string resource = String.Format("UploadSong/{0}/{1}", ticket, songId);
+
+            WebClient c = new WebClient();
+
+            c.UploadStringCompleted += (sender, args) =>
+                                           {
+                                               if (args.Result != null)
+                                               {
+                                                   MegaStarXmlSerializer serializer = new MegaStarXmlSerializer();
+                                                   var result = serializer.Deserialize<UploadRecordingResponse>(args.Result);
+
+                                                   callback(result);
+                                               }
+                                           };
+            
+            using (StreamReader sr = new StreamReader(fileStream))
+            {
+                var s = sr.ReadToEnd();
+
+                
+
+                c.UploadStringAsync(new Uri(_baseUrl + "/" + resource), "POST", s);   
+            }
+        }
+
         /// <summary>
         /// Get all avialable songs to record
         /// </summary>

@@ -17,12 +17,20 @@ namespace Megastar.Client.Library
             return Deserialize<T>(new MemoryStream(System.Text.Encoding.UTF8.GetBytes(response.Content)));
         }
 
+        public T Deserialize<T>(string response) where T : new()
+        {
+
+            using (var ms = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(response)))
+            {
+                return Deserialize<T>(ms);
+            }
+        }
 
         public T Deserialize<T>(Stream response) where T : new()
         {
             var xmlSer = new System.Xml.Serialization.XmlSerializer(typeof(T));
             T result;
-
+            
             try
             {
                 result = (T)xmlSer.Deserialize(response);
