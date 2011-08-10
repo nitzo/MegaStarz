@@ -27,6 +27,10 @@ namespace Megastar.RestServices.Library.Entities
         [DataMember]
         public string FacebookId;
 
+        public string PictureUrl
+        {
+            get { return string.Format("https://graph.facebook.com/{0}/picture", FacebookId); }
+        }
     }
 
 }

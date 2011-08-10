@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
+using System.Globalization;
 using System.IO;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
@@ -220,12 +221,9 @@ namespace MegaStar.MVC.Lib.RestServices
           
             DateTime bday;
 
-            if (DateTime.TryParse(user.birthday, out bday))
+            if (DateTime.TryParse(user.birthday, CultureInfo.CreateSpecificCulture("en-US"), DateTimeStyles.None, out bday))
                 star.Birthday = bday;
 
-            //TODO: Get profile picture
-
-            //star.picture = user.picture;
         }
        #endregion
  
