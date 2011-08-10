@@ -141,7 +141,7 @@ namespace MegaStar.MVC.Lib.RestServices
 
                 dynamic parameters = new ExpandoObject();
                 parameters.message = "Has just released a new single!";
-                parameters.link = "http://apps.facebook.com/megastarz/FanPage/Index/" + star.FacebookId;    //TODO: Move to web.config
+                parameters.link = "http://apps.facebook.com/megastarz/" + star.FacebookId;    //TODO: Move to web.config
                 parameters.picture = "http://megastarz.cloudapp.net/Content/fb_post_logo.jpg";               //TODO: Move to web.config
                 parameters.name = song.Name + "(" + song.Artist.Name +")";
                 parameters.caption = star.FirstName + " " + star.LastName + "'s FanPage";

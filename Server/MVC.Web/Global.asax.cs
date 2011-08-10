@@ -31,13 +31,15 @@ namespace Megastar.MVC.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
+            routes.MapRoute("FanPage",
+                            "FanPage/{id}",
+                            new {controller = "FanPage", action = "Index"});
 
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional }, // Parameter defaults
-                new { controller = "^(?!Services).*"}
+                new { controller = "^(?!Services).*", }
             );
 
             routes.Add(new ServiceRoute("Services/WP7", new WebServiceHostFactory(), typeof (WP7Service)));

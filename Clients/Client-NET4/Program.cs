@@ -9,12 +9,12 @@ namespace AzureClientTester
     {
         static void Main(string[] args)
         {
-            var client = new MegaStarzClient("http://localhost:81/Services/WP7");
-            //var client = new MegaStarzClient();
+            //var client = new MegaStarzClient("http://localhost:81/Services/WP7");
+            var client = new MegaStarzClient();
 
             var req = new GetTicketRequest();
             req.AccessToken =
-                "150708541673346|2.AQAC3P3ta_y4ZhRT.3600.1313017200.0-788734623|CDtnDL9aG4NVE1jYeDqC54mZMnY";
+                "150708541673346|2.AQCt99tG8raLrjhw.3600.1313024400.0-788734623|ELskl_xh1EwdN3y_e61rjmYjjQk";
 
             client.GetTicketAsync(req,
                 (response) =>
@@ -23,7 +23,7 @@ namespace AzureClientTester
 
                         try
                         {
-                            fs = new FileStream(@"C:\projects\MegastrazWP7\Videos\Abba_Mamma_Mia.wmv", FileMode.Open, FileAccess.Read);
+                            fs = new FileStream(@"C:\1020.log", FileMode.Open, FileAccess.Read);
                         }
                         catch (Exception e)
                         {
