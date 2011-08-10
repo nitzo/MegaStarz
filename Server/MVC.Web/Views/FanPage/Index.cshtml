@@ -1,36 +1,112 @@
 ﻿@model StarVM
 
 @{
-    ViewBag.Title = "FanPage";
-    Layout = null;
+	ViewBag.Title = "FanPage";
+	Layout = null;
 }
 
 <html>
 <head>
-    <title>@Model.Star.FirstName @Model.Star.LastName's Fan Page</title>
-    <script type="text/javascript" src="@Url.Content("~/Content/Flowplayer/flowplayer-3.2.6.min.js")"></script>
+	<title>@Model.Star.FirstName @Model.Star.LastName's Fan Page</title>
+	<script type="text/javascript" src="@Url.Content("~/Content/Flowplayer/flowplayer-3.2.6.min.js")"></script>
 </head>
 
 <body>
-    <div id="player" style="display:block;width:425px;height:300px;"></div>
 
-    @{
-        var songUrl = Model.NewestSong != null ? Model.NewestSong.playUrl : null;
-    }
+
+
+<table id="Table_01" width="1084" height="720" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="5">
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_01.jpg")" width="1084" height="23" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="11">
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_02.jpg")" width="279" height="697" alt=""></td>
+		<td colspan="3">
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_03.jpg")" width="525" height="34" alt=""></td>
+		<td rowspan="11">
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_04.jpg")" width="280" height="697" alt=""></td>
+	</tr>
+	<tr>
+		<td rowspan="8">
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_05.jpg")" width="26" height="610" alt=""></td>
+		<td>
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_06.jpg")" width="474" height="2" alt=""></td>
+		<td rowspan="9">
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_07.jpg")" width="25" height="640" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_08.jpg")" width="474" height="2" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_09.jpg")" width="474" height="67" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_10.jpg")" width="474" height="24" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_11.jpg")" width="474" height="50" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			 <div id="player" style="display:block;width:474px;height:266px;"></div>
+@*			<img src="images/fanpage_12.jpg" width="474" height="266" alt=""></td>*@
+	</tr>
+	<tr>
+		<td>
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_13.jpg")" width="474" height="39" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_14.jpg")" width="474" height="160" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_15.jpg")" width="500" height="30" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_16.jpg")" width="525" height="23" alt=""></td>
+	</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	@{
+		var songUrl = Model.NewestSong != null ? Model.NewestSong.playUrl : null;
+	}
 @if (songUrl != null)
 {
-    <script type="text/javascript">
-        
-        flowplayer("player", "@Url.Content("~/Content/Flowplayer/flowplayer-3.2.7.swf")",
-            {
-                clip: {
-                    autoPlay: false,
-                    autoBuffering: true,
-                    //url: '@songUrl'
-                    url: 'http://megastarz.blob.core.windows.net/songs/paparazzi.wmv'
-            }
-         });
-     </script>
+	<script type="text/javascript">
+		
+		flowplayer("player", "@Url.Content("~/Content/Flowplayer/flowplayer-3.2.7.swf")",
+			{
+				clip: {
+					autoPlay: false,
+					autoBuffering: true,
+					//url: '@songUrl'
+					url: 'http://megastarz.blob.core.windows.net/songs/paparazzi.wmv'
+			}
+		 });
+	 </script>
 }
 
 

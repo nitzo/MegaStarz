@@ -14,7 +14,7 @@ namespace AzureClientTester
 
             var req = new GetTicketRequest();
             req.AccessToken =
-                "148836425163954|2.AQAQ-BVk8M_rPYWc.3600.1313010000.0-788734623|RISVoJOaVRVlsed6DjGBm0ijHV8";
+                "150708541673346|2.AQAC3P3ta_y4ZhRT.3600.1313017200.0-788734623|CDtnDL9aG4NVE1jYeDqC54mZMnY";
 
             client.GetTicketAsync(req,
                 (response) =>

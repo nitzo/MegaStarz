@@ -134,8 +134,23 @@ namespace MegaStar.MVC.Lib.RestServices
                     storage.DeleteBlob(fileGuid);
                     return null; //TODO: Return Bad Request
                 }
-            }
 
+
+                //Post to Facebook //TODO: Refactor to a function
+                var _fbclient = new FacebookClient(t.accessToken);
+
+                dynamic parameters = new ExpandoObject();
+                parameters.message = "Has just released a new single!";
+                parameters.link = "http://apps.facebook.com/megastarz/FanPage/Index/" + star.FacebookId;    //TODO: Move to web.config
+                parameters.picture = "http://megastarz.cloudapp.net/Content/fb_post_logo.jpg";               //TODO: Move to web.config
+                parameters.name = song.Name + "(" + song.Artist.Name +")";
+                parameters.caption = star.FirstName + " " + star.LastName + "'s FanPage";
+                //parameters.description = "Longer description of the link";
+
+                dynamic result = _fbclient.Post("me/feed", parameters);
+
+            }
+            
             return new UploadRecordingResponse(){id = fileGuid, playUrl = storage.GetBlobUri(fileGuid).ToString()};
         }
 

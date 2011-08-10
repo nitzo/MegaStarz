@@ -104,6 +104,23 @@
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Fanpage\images\fanpage_01.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_02.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_03.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_04.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_05.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_06.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_07.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_08.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_09.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_10.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_11.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_12.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_13.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_14.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_15.jpg" />
+    <Content Include="Content\Fanpage\images\fanpage_16.jpg" />
+    <Content Include="Content\fb_post_logo.jpg" />
     <Content Include="Content\Flowplayer\flowplayer-3.2.6.min.js" />
     <Content Include="Content\Flowplayer\flowplayer-3.2.7.swf" />
     <Content Include="Content\Flowplayer\flowplayer.controls-3.2.5.swf" />
