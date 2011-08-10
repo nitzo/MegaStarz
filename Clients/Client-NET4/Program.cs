@@ -14,7 +14,7 @@ namespace AzureClientTester
 
             var req = new GetTicketRequest();
             req.AccessToken =
-                "148836425163954|2.AQDUSmjh73ORWAZL.3600.1312754400.0-788734623|Hv4MUlx5sgAjCvitnhWMHtHgbUs";
+                "148836425163954|2.AQAQ-BVk8M_rPYWc.3600.1313010000.0-788734623|RISVoJOaVRVlsed6DjGBm0ijHV8";
 
             client.GetTicketAsync(req,
                 (response) =>
@@ -23,7 +23,7 @@ namespace AzureClientTester
 
                         try
                         {
-                            fs = new FileStream(@"C:\1020.log", FileMode.Open, FileAccess.Read);
+                            fs = new FileStream(@"C:\projects\MegastrazWP7\Videos\Abba_Mamma_Mia.wmv", FileMode.Open, FileAccess.Read);
                         }
                         catch (Exception e)
                         {
@@ -41,13 +41,13 @@ namespace AzureClientTester
 
                 });
 
-            client.GetSongsAsync((response) =>
-                                     {
-                                         foreach (var songResponse in response)
-                                         {
-                                             Console.WriteLine(string.Format("Song ({0}): \"{1}\", ({2}). Length {3}, PlayUrl: {4}", songResponse.id, songResponse.name, songResponse.artistName, songResponse.length, songResponse.playUrl));
-                                         }
-                                     });
+//            client.GetSongsAsync((response) =>
+//                                     {
+//                                         foreach (var songResponse in response)
+//                                         {
+//                                             Console.WriteLine(string.Format("Song ({0}): \"{1}\", ({2}). Length {3}, PlayUrl: {4}", songResponse.id, songResponse.name, songResponse.artistName, songResponse.length, songResponse.playUrl));
+//                                         }
+//                                     });
 
             System.Threading.Thread.CurrentThread.Suspend();
         }

@@ -1,0 +1,41 @@
+﻿@model StarVM
+
+@{
+    ViewBag.Title = "FanPage";
+    Layout = null;
+}
+
+<html>
+<head>
+    <title>@Model.Star.FirstName @Model.Star.LastName's Fan Page</title>
+    <script type="text/javascript" src="@Url.Content("~/Content/Flowplayer/flowplayer-3.2.6.min.js")"></script>
+</head>
+
+<body>
+    <div id="player" style="display:block;width:425px;height:300px;"></div>
+
+    @{
+        var songUrl = Model.NewestSong != null ? Model.NewestSong.playUrl : null;
+    }
+@if (songUrl != null)
+{
+    <script type="text/javascript">
+        
+        flowplayer("player", "@Url.Content("~/Content/Flowplayer/flowplayer-3.2.7.swf")",
+            {
+                clip: {
+                    autoPlay: false,
+                    autoBuffering: true,
+                    //url: '@songUrl'
+                    url: 'http://megastarz.blob.core.windows.net/songs/paparazzi.wmv'
+            }
+         });
+     </script>
+}
+
+
+</body>
+
+</html>
+
+<h2>FanPage</h2>
