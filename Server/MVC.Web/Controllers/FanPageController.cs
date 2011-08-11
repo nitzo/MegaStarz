@@ -28,7 +28,7 @@ namespace Megastar.MVC.Web.Controllers
                 if (star == null)
                     return View("Error");
 
-                var newestSong = star.SongStarLinks.OrderBy(s => s.InsertDate).FirstOrDefault();
+                var newestSong = star.SongStarLinks.OrderByDescending(s => s.InsertDate).FirstOrDefault();
 
                 var model = new StarVM();
 
