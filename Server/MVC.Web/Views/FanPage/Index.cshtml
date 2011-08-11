@@ -36,8 +36,8 @@
 	<tr>
 		<td colspan="2" width="472" height="67" align="center">
 @*			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_07.jpg")" width="472" height="67" alt="">*@
-            <div style="font-size:50px;color:#00aeef;font-weight: bold" >@Model.Star.FirstName.ToUpper() @Model.Star.LastName.ToUpper()</div>
-            </td>
+			<div style="font-size:50px;color:#00aeef;font-weight: bold" >@Model.Star.FirstName.ToUpper() @Model.Star.LastName.ToUpper()</div>
+			</td>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -45,9 +45,9 @@
 	</tr>
 	<tr>
 		<td colspan="2" width="472" height="50" align="center" style="background-color: #00aeef ">
-        <div style="font-size:50px;font-weight: bold;color:white" >Mamma Mia</div>
+		<div style="font-size:50px;font-weight: bold;color:white" >Mamma Mia</div>
 @*			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_09.jpg")" width="472" height="50" alt="">*@
-            </td>
+			</td>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -64,7 +64,7 @@
 	</tr>
 	<tr>
 		<td rowspan="2" width="110" height="140">
-            <img src="@(Model.Star.PictureUrl + "?type=large")" width="110" height="140"/>
+			<img src="@(Model.Star.PictureUrl + "?type=large")" width="110" height="140"/>
 @*			<img src="@Url.Content("~/Content/Fanpage/images/fanpage_13.jpg")" width="110" height="140" alt="">*@
 </td>
 		<td>
@@ -112,8 +112,8 @@
 					autoPlay: false,
 					autoBuffering: true,
 					scaling: 'fit',
-                    //url: '@songUrl'
-					url: 'http://megastarz.blob.core.windows.net/recordedsongs/b886ef14-bcfd-49ab-a7d8-bff34863ceae'
+					url: '@songUrl'
+					//url: 'http://megastarz.blob.core.windows.net/recordedsongs/b886ef14-bcfd-49ab-a7d8-bff34863ceae'
 					
 			}
 		 });
